@@ -225,8 +225,9 @@ forceCleanCheckout = true
 }
 dependencies {
 dependency(AbsoluteId("TC_Trunk_BuildDistDocker")) {
-snapshot { onDependencyFailure = FailureAction.IGNORE
-reuseBuilds = ReuseBuilds.ANY }
+snapshot { onDependencyFailure = FailureAction.FAIL_TO_START
+reuseBuilds = ReuseBuilds.ANY
+synchronizeRevisions = false }
 artifacts {
 artifactRules = "TeamCity.zip!/**=>context/TeamCity"
 }
